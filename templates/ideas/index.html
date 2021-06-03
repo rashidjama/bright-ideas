@@ -16,15 +16,15 @@
             <h4>{{post.title}}</h4>
             <p class="lead">{{post.content | safe}}</p>
             <p class="figure-caption">Posted by: <a
-                href="{% url 'ideas:member_details' post.author.id %}">{{post.author.username}}</a> On:
+                href="{% url 'ideas:member_details' post.author.id %}" class="text-info">{{post.author.username}}</a> On:
               {{post.created_at | date }}</p>
 
             <div class="people_like mt-2 mb-4 d-flex justify-content-between">
               <span class="text-muted"> <i class="far fa-thumbs-up"></i>
-                <a href="{% url 'ideas:likers' post.id %}" class="likers">
+                <a href="{% url 'ideas:likers' post.id %}" class="likers text-info">
                   {{post.who_likes.count}} users(s)</a> like this idea!</span>
               <div><a data-toggle="collapse" href="#collapse{{post.id}}" role="button" aria-expanded="false"
-                  aria-controls="collapseComments">{{post.post_comment.count}} Comments</a></div>
+                  aria-controls="collapseComments" class="text-info">{{post.post_comment.count}} Comments</a></div>
             </div>
 
             <!-- comment form accordian -->
@@ -99,7 +99,7 @@
             <li class="page-item"><a class="page-link" href="?page=1">
                 <<</a> </li> <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">
                     <</a> </li> {% endif %} {% for num in posts.paginator.page_range %} {% if posts.number == num %} <li
-                      class="page-item mx-1"><a class="page-link bg-dark text-white" href="{{posts.number}}">{{num}}</a>
+                      class="page-item mx-1"><a class="page-link bg-info text-white" href="{{posts.number}}">{{num}}</a>
             </li>
             {% else %}
             <li class="page-item mx-1"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
@@ -125,7 +125,7 @@
           </div>
         </div>
 
-        <div class="card text-center bg-primary text-white mb-3">
+        <div class="card text-center bg-info text-white mb-3">
           <div class="card-body">
             <h3><span>{{users.count}}</span> Members!</h3>
             <h4 class="display-4">
@@ -135,7 +135,7 @@
           </div>
         </div>
 
-        <div class="card text-center bg-dark text-white mb-3">
+        <div class="card text-center bg-light mb-3">
           <div class="card-body">
             <h3>All Shared Ideas.</h3>
             <h4 class="display-4">
@@ -144,8 +144,19 @@
             <h3> {{all_posts.count}} Creative Ideas!</h3>
           </div>
         </div>
+
+        <div class="card text-center bg-info text-white mb-3">
+          <div class="card-body">
+            <h3>From Founder.</h3>
+            <h4 class="display-4">
+              <i class="fas fa-user-tie"></i>
+            </h4>
+            <h3>Welcome to the platform, An Idea can change your life!!!</h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 {% endblock %}
+

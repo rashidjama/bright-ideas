@@ -16,9 +16,9 @@
 </head>
 <body class="bg-dark">
   <div class="image-overlay">
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark py-2">
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top py-2  bg-info mb-5">
     <div class="container">
-      <a href="{% url 'index'%}" class="navbar-brand"><img src="/static/ideas/images/lightbulb.jpg"  alt="" class="brand "> Bright Ideas</a>
+      <a href="{% url 'index'%}" class="navbar-brand"><img src="/static/ideas/images/lightbulb.jpeg"  alt="" class="brand "> Bright Ideas</a>
 
       <form action="{% url 'ideas:search' %}" method="GET" class="input-group search_form">
         <input type="search" name="title_contains" class="form-control form-control-sm" placeholder="Search Ideas...">
@@ -105,9 +105,14 @@
   CKEDITOR.replace('editor1');
 </script>
 
-<footer class="footer bg-dark text-center text-white py-3 fixed-bottom border-top">
-  <span>Bright Ideas 2020</span>
+<footer class="footer text-center py-3 text-white bg-info">
+  <span>&#169Bright Ideas 2020 - <span id="current_year"></span></span>
+  <div><small>Developed by: Rashid Jama <a href="https://www.rashidalijama.com" target="_blank">Check My Other Projects</a></small></div>
 </footer>
   </div>
 </body>
+<script>
+  let currentYear = new Date().getFullYear();
+  document.getElementById('current_year').textContent = currentYear;
+</script>
 </html>
